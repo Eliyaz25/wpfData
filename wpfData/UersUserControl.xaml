@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="wpfData.UsersUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:wpfData"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:CandyConverter x:Key="CandyConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="1"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="usersListView" Grid.Column="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="First Name" Width="120" 
+                                    DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Header="Last Name" Width="120" DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Header="Phone" Width="120" DisplayMemberBinding="{Binding Phone}" />
+                    <GridViewColumn Header="City" Width="120" DisplayMemberBinding="{Binding City}" />
+                    <GridViewColumn Header="UserName" Width="120" DisplayMemberBinding="{Binding UserName}" />
+                    <GridViewColumn Header="Passward" Width="120" DisplayMemberBinding="{Binding Password}" />
+                    <GridViewColumn Header="IsAdmin" Width="120" DisplayMemberBinding="{Binding IsAdmin}" />
+                    <GridViewColumn Header="Snack" Width="120" DisplayMemberBinding="{Binding MySnacks , Converter={StaticResource CandyConverter}}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <DockPanel Grid.Column="1" Background="AliceBlue" x:Name="cityInfo"/>
+    </Grid>
+</UserControl>
