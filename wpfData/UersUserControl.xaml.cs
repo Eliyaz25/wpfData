@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ViewModel;
+using Model;
 
 
 namespace wpfData
@@ -28,8 +29,9 @@ namespace wpfData
         {
             InitializeComponent();
 
-            userDB = new UserDB();
-            usersListView.ItemsSource = userDB.SelectAll();
+            UserDB userDB = new UserDB();
+            UserList list = userDB.SelectAll();
+            usersListView.ItemsSource = list;
         }
     }
 }

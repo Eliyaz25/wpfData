@@ -27,7 +27,19 @@
                     <GridViewColumn Header="UserName" Width="120" DisplayMemberBinding="{Binding UserName}" />
                     <GridViewColumn Header="Passward" Width="120" DisplayMemberBinding="{Binding Password}" />
                     <GridViewColumn Header="IsAdmin" Width="120" DisplayMemberBinding="{Binding IsAdmin}" />
-                    <GridViewColumn Header="Snack" Width="120" DisplayMemberBinding="{Binding MySnacks , Converter={StaticResource CandyConverter}}" />
+                    <GridViewColumn Header="Snacks" Width="auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding MySnacks}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding CandyName}"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
