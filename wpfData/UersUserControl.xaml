@@ -6,10 +6,7 @@
              xmlns:local="clr-namespace:wpfData"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <local:CandyConverter x:Key="CandyConverter"/>
-    </UserControl.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -33,7 +30,7 @@
                                 <ItemsControl ItemsSource="{Binding MySnacks}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding CandyName}"/>
+                                            <TextBlock Text="{Binding SnackName}"/>
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>

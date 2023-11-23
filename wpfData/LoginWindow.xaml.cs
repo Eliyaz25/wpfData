@@ -11,8 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Model;
-using ViewModel;
+using wpfData.ServiceReferenceSnack;
 
 namespace wpfData
 {
@@ -21,9 +20,11 @@ namespace wpfData
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private ServiceSnacksClient serviceSnacks;
         public LoginWindow()
         {
             InitializeComponent();
+            serviceSnacks = new ServiceSnacksClient();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -34,8 +35,7 @@ namespace wpfData
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             User user = new User() { UserName =tbxID.Text, Password=tbxPassword.Password};
-           UserDB db = new UserDB();    
-            user=db.Login(user);
+            user = serviceSnacks.Login(user);    
             if(user==null)
             {
                 MessageBox.Show("Not In System");
